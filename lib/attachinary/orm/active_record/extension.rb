@@ -17,8 +17,9 @@ module Attachinary
           dependent: :destroy
       else
         has_many :"#{relation}",
-          -> { where scope: options[:scope].to_s }, 
+          -> { where scope: options[:scope].to_s },
           as: :attachinariable,
+          inverse_of: :attachinariable,
           class_name: '::Attachinary::File',
           dependent: :destroy
       end
